@@ -5,6 +5,7 @@ import Write from "./components/Write/Write";
 import Settings from "./components/Settings/Settings";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Home from "./components/Home/Home"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -17,6 +18,8 @@ function App() {
       <Switch>
         <Route exact path="/catalog">
           <Catalog />
+        </Route><Route exact path="/">
+          <Home />
         </Route>
         <Route path="/register">{user ? <Catalog /> : <Register />}</Route>
         <Route path="/login">{user ? <Catalog /> : <Login />}</Route>

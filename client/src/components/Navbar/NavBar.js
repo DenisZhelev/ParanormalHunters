@@ -288,14 +288,15 @@ export default function TopBar() {
             </Drawer>
           ) : (
             <List component="nav" aria-labelledby="main navigation" className={classes.list}>
+              <Button component={Link} to="/" color="inherit">HOME</Button>
              <Button component={Link} to="/catalog" color="inherit">CATALOG</Button>
              <Button component={Link} to="/" color="inherit">ABOUT</Button>
              <Button component={Link} to="/" color="inherit">CONTACT</Button>
               {user && (
                 <>
                   <Button color="inherit" component={Link} to="/write" onClick={toggleDrawer(false)}>
-            WRITE
-          </Button>
+                  WRITE
+                  </Button>
                   <Button color="inherit" onClick={handleLogout}>
                     LOGOUT
                   </Button>
