@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Posts from "../Posts/Posts";
+import Posts from "./Posts/Posts";
 import Sidebar from "../Sidebar/Sidebar";
-import "./home.css";
+// import * from "./";
 import axios from "axios";
 import { useLocation } from "react-router";
 
-export default function Home() {
+export default function Catalog() {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
 
@@ -20,8 +20,9 @@ export default function Home() {
     <>
       <div className="home">
         <Posts posts={posts} />
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </>
   );
 }
+

@@ -289,8 +289,8 @@ export default function TopBar() {
           ) : (
             <List component="nav" aria-labelledby="main navigation" className={classes.list}>
              <Button component={Link} to="/catalog" color="inherit">CATALOG</Button>
-<Button component={Link} to="/" color="inherit">ABOUT</Button>
-<Button component={Link} to="/" color="inherit">CONTACT</Button>
+             <Button component={Link} to="/" color="inherit">ABOUT</Button>
+             <Button component={Link} to="/" color="inherit">CONTACT</Button>
               {user && (
                 <>
                   <Button color="inherit" component={Link} to="/write" onClick={toggleDrawer(false)}>
@@ -299,7 +299,7 @@ export default function TopBar() {
                   <Button color="inherit" onClick={handleLogout}>
                     LOGOUT
                   </Button>
-                  <Button color="inherit" component={Link} to="/">
+                  <Button color="inherit" component={Link} to="/settings">
                     <img src={PF + user.profilePic} alt="" className="topImg" />
                   </Button>
                 </>

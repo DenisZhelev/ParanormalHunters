@@ -157,6 +157,14 @@ export default function Login() {
             Login
           </Button>
         </form>
+        <div>
+        <span>
+          Still not registered?&nbsp;
+        </span>
+        <Link to="/register">
+          REGISTER
+        </Link>
+      </div>
       </Paper>
     </div>
   );

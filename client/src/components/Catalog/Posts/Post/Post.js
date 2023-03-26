@@ -24,40 +24,66 @@
 //     </div>
 //   );
 // }
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+
+import { makeStyles } from "@material-ui/core/styles";
+import { Card, CardMedia, CardContent, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 600,
-    margin: 'auto',
-    marginBottom: theme.spacing(3),
+    width: 385,
+    margin: "0px 25px 40px 25px",
+    maxHeight: "515"
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%',
+    height: 280,
+    borderRadius: 7,
   },
   link: {
-    textDecoration: 'none',
-    color: 'inherit',
+    textDecoration: "none",
+    color: "inherit",
+    cursor: "pointer",
   },
-  categories: {
-    display: 'flex',
-    flexWrap: 'wrap',
+  postCat: {
+    fontFamily: "Varela Round, sans-serif",
+    fontSize: 11,
+    color: "#be9656",
+    lineHeight: "20px",
+    marginTop: 15,
+    marginRight: 10,
+    cursor: "pointer",
   },
-  category: {
-    marginRight: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    padding: theme.spacing(0.5, 1),
-    borderRadius: '4px',
-    backgroundColor: theme.palette.grey[200],
+  postTitle: {
+    fontFamily: "Josefin Sans, sans-serif",
+    fontSize: 24,
+    fontWeight: 700,
+    marginTop: 15,
+    cursor: "pointer",
+  },
+  postDate: {
+    fontFamily: "Lora, serif",
+    fontStyle: "italic",
+    fontSize: 13,
+    color: "#999",
+    marginTop: 15,
+  },
+  postDesc: {
+    fontFamily: "Varela Round, sans-serif",
+    fontSize: 14,
+    color: "#444",
+    lineHeight: "24px",
+    marginTop: 15,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: 4,
+    WebkitBoxOrient: "vertical",
   },
 }));
 
 export default function Post({ post }) {
   const classes = useStyles();
-  const PF = 'http://localhost:5000/images/';
+  const PF = "http://localhost:5000/images/";
 
   return (
     <Card className={classes.root}>
@@ -68,23 +94,23 @@ export default function Post({ post }) {
           title={post.title}
         />
       )}
-      <CardContent>
-        <div className={classes.categories}>
-          {post.categories.map((category) => (
-            <div key={category._id} className={classes.category}>
-              <Typography variant="caption">{category.name}</Typography>
-            </div>
+      <CardContent className={classes.postInfo}>
+        <div>
+          {post.categories.map((c) => (
+            <span key={c.id} className={classes.postCat}>
+              {c.name}
+            </span>
           ))}
         </div>
         <Link to={`/post/${post._id}`} className={classes.link}>
-          <Typography variant="h6" component="h2" gutterBottom>
+          <Typography variant="h5" className={classes.postTitle}>
             {post.title}
           </Typography>
         </Link>
-        <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+        <Typography variant="body2" className={classes.postDate}>
           {new Date(post.createdAt).toDateString()}
         </Typography>
-        <Typography variant="body1" component="p">
+        <Typography variant="body1" className={classes.postDesc}>
           {post.desc}
         </Typography>
       </CardContent>
